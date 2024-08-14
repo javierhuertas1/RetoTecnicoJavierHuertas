@@ -21,11 +21,7 @@ public class PriceController {
 
     @Autowired
     private PriceService priceService;
-    @Operation(summary = "Find price", description = "Find a pvp single price", tags = {"price"})
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Operacion exitosa", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Price.class))),
-            @ApiResponse(responseCode = "400", description = "Datos de entrada inválidos proporcionados"),
-            @ApiResponse(responseCode = "404", description = "Precio no encontrado")})
+
     @GetMapping("/find")
     public Optional<Price> getPrice(
             @RequestParam("applicationDate") String applicationDateStr,
